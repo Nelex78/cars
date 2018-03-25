@@ -12,7 +12,32 @@ body {
     margin: 50px auto;
     display: block;
     text-align: center;
-
+    .searchCars, #speedAnimation, #start {
+        height: 30px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 3px 10px;
+        margin-bottom: 30px;
+        width: 70%;
+    }
+    .buttons-holder {
+        label {
+            font-size: 14px;
+        }
+    }
+    #speedAnimation, #start {
+        width: 100px;
+        
+    }
+    #start {
+        height: 38px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
     .cars-list {
         overflow: hidden;
         margin-bottom: 30px;

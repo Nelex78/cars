@@ -148,6 +148,70 @@ body {
         .container .cars .panel.disable img {
           filter: brightness(70%); }
 
+.scale-holder {
+  position: relative;
+  margin-top: 50px;
+  z-index: 0; }
+  .scale-holder .scale {
+    position: absolute;
+    width: 100%;
+    top: -30px; }
+    .scale-holder .scale .scale-box {
+      min-height: 240px;
+      display: inline-block;
+      float: left;
+      position: relative;
+      text-indent: -10%; }
+      .scale-holder .scale .scale-box::before {
+        content: ' ';
+        border-left: 1px solid gray;
+        height: 212px;
+        position: absolute;
+        top: 30px;
+        left: 0; }
+      .scale-holder .scale .scale-box:firstchild::before {
+        border-left: 1px solid transparent; }
+    .scale-holder .scale .speedLimit, .scale-holder .scale .trafficLight {
+      position: absolute;
+      bottom: -70px;
+      width: 50px;
+      height: 50px;
+      font-weight: bold;
+      font-size: 30px;
+      border: 5px solid gray;
+      border-radius: 50%;
+      line-height: 50px;
+      display: inline-block; }
+      .scale-holder .scale .speedLimit::after, .scale-holder .scale .trafficLight::after {
+        content: ' ';
+        border-left: 4px dashed gray;
+        height: 212px;
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        margin-left: -2px; }
+    .scale-holder .scale .trafficLight {
+      bottom: -85px;
+      width: 35px;
+      height: 70px;
+      font-size: 30px;
+      border: 3px solid gray;
+      border-radius: 5px;
+      line-height: 0px; }
+      .scale-holder .scale .trafficLight span {
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin: 10px auto;
+        border-radius: 50%;
+        background-color: gray; }
+        .scale-holder .scale .trafficLight span.redl {
+          background-color: red; }
+        .scale-holder .scale .trafficLight span.greenl {
+          background-color: green; }
+      .scale-holder .scale .trafficLight::after {
+        bottom: 75px; }
+
 .track {
   text-align: left;
   border: 1px solid #000;

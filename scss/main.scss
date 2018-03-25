@@ -210,6 +210,84 @@ body {
 
     
 }
+.scale-holder {
+    position: relative;
+    margin-top: 50px;
+    z-index: 0;
+    .scale {
+        position: absolute;
+        width: 100%;
+        top: -30px;
+        .scale-box {
+            min-height: 240px;      
+            display: inline-block;
+            float: left;
+            position: relative;
+            text-indent: -10%;
+            &::before {
+                content: ' ';
+                border-left: 1px solid gray;
+                height: 212px;
+                position: absolute;
+                top: 30px;
+                left: 0;
+                
+            }
+            &:firstchild {
+                    &::before {
+                        border-left: 1px solid transparent;
+                    }     
+            }
+        }
+        .speedLimit, .trafficLight {
+            position: absolute;
+            bottom: -70px;
+            width: 50px;
+            height: 50px;
+            font-weight: bold;
+            font-size: 30px;
+            border: 5px solid gray;
+            border-radius: 50%;
+            line-height: 50px;
+            display: inline-block;
+            &::after {
+                content: ' ';
+                border-left: 4px dashed gray;
+                height: 212px;
+                position: absolute;
+                bottom: 60px;
+                left: 50%;
+                margin-left: -2px;
+            }
+        }
+        .trafficLight {
+            bottom: -85px;
+            width: 35px;
+            height: 70px;
+            font-size: 30px;
+            border: 3px solid gray;
+            border-radius: 5px;
+            line-height: 0px;
+            span {
+                display: block;
+                width: 20px;
+                height: 20px;
+                margin: 10px auto;
+                border-radius: 50%;
+                background-color: gray;
+                &.redl {
+                    background-color: red;
+                }
+                &.greenl{
+                    background-color: green;
+                }
+            }
+            &::after {
+                bottom: 75px;
+            }
+        }
+    }
+}
 .track {
     text-align: left;
     border: 1px solid #000;

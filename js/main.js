@@ -10,7 +10,14 @@ $( document ).ready(function() {
         var scale = document.getElementById('scale');
         var scaleWidth = scale.offsetWidth;
         var scaleBox = scaleWidth/10;
+        var speedLimit = data.speed_limits;
+        var trafficLights = data.traffic_lights;
+        var track = document.getElementById('track');  
+        var trafficPosition = '';
+        var trafficDuration = '';
         
+
+       
 
         //car elements
         carsInfo.forEach(function(car, index) {
@@ -38,8 +45,34 @@ $( document ).ready(function() {
         }
         scale.style.paddingLeft = scaleBox + 'px';
 
+        //speed limits  
+        speedLimit.forEach(function(speedL){
+            var limit = (speedL.position*scaleWidth)/dataDistance;
 
+            scale.innerHTML += '<span class="speedLimit" style="left: ' + limit + 'px"> ' + speedL.speed + ' </span>';
+        });
 
+        trafficLights.forEach(function(tlight){
+            trafficPosition = (tlight.position*scaleWidth)/dataDistance;
+            trafficDuration = tlight.duration;
+            scale.innerHTML += '<span class="trafficLight" style="left: ' + trafficPosition + 'px"><span id="redl"></span><span id="greenl"></span> </span>';
+
+        });
+        // Traffic lights
+        function startTrafficLight() {
+            InitialFlip();
+            function InitialFlip() {
+                $("#redl").addClass('redl');
+                $("#greenl").removeClass('greenl');
+                setTimeout(SecondFlip, trafficDuration);
+            }
+
+            function SecondFlip() {
+                $("#redl").removeClass('redl');
+                $("#greenl").addClass('greenl');
+                setTimeout(InitialFlip, trafficDuration);
+            }
+        }
 
     });
     

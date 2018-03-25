@@ -208,7 +208,10 @@ body {
         
     }
 
-    
+    .buttons-holder {
+        text-align: right;
+    }
+
 }
 .scale-holder {
     position: relative;
@@ -288,6 +291,7 @@ body {
         }
     }
 }
+
 .track {
     text-align: left;
     border: 1px solid #000;

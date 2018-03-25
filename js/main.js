@@ -4,20 +4,18 @@ $( document ).ready(function() {
         var data = data;
         var dataDistance = data.distance;
         var carsInfo = data.cars;
-        var carData = '';
-        var carsLIst = document.getElementById('cars-list'); 
+        var speedLimit = data.speed_limits;
+        var trafficLights = data.traffic_lights;
+        var carsLIst = document.getElementById('cars-list');  
+        var track = document.getElementById('track');  
         var speedSelectedCars = [];
+        var winnerSpeed = [];
+        var carData = '';
+        var trafficPosition = '';
+        var trafficDuration = '';
         var scale = document.getElementById('scale');
         var scaleWidth = scale.offsetWidth;
         var scaleBox = scaleWidth/10;
-        var speedLimit = data.speed_limits;
-        var trafficLights = data.traffic_lights;
-        var track = document.getElementById('track');  
-        var trafficPosition = '';
-        var trafficDuration = '';
-        
-
-       
 
         //car elements
         carsInfo.forEach(function(car, index) {
@@ -74,6 +72,65 @@ $( document ).ready(function() {
             }
         }
 
+        // car animation 
+        $('#start').on('click', function(){
+            if (typeof speedSelectedCars !== 'undefined' && speedSelectedCars.length > 0){
+
+                // input field for speed animation              
+                var speedAnimation = document.getElementById('speedAnimation').value;
+                if (speedAnimation==null || speedAnimation==""){
+                    alert("Please Enter Speed Animation Number");
+                    return false;
+                }
+
+                startTrafficLight();
+
+                speedSelectedCars.forEach(function(c, idx){
+                      winnerSpeed.push(c.speed);
+
+                      $('.track div:eq(' + idx + ') img').css({
+                          'transition': 'margin-left ' + (speedAnimation/c.speed) + 's'
+                      });
+                      $('.track div img').css({
+                          'margin-left': 'calc(100% - 50px)'
+                      });
+                }); 
+
+
+                winnerSpeed = winnerSpeed.sort().slice().reverse();
+                var gold = winnerSpeed[0];
+                var silver = winnerSpeed[1];
+                var bronze = winnerSpeed[2];
+                $(".racecar").each(function(c, i) {
+                    var medal = $(this).find("span").text();
+                    if(medal == gold){
+                        $(this).find("span").addClass(' goldmedal').delay((speedAnimation/medal)*1000).queue(function(next){
+                            $(this).css({
+                                'display': 'inline-block'
+                            });
+                            next();
+                        });
+                    } else if (medal == silver){
+                        $(this).find("span").addClass(' silvermedal').delay((speedAnimation/medal)*1000).queue(function(next){
+                            $(this).css({
+                                'display': 'inline-block'
+                            });
+                            next();
+                        });
+                    } else {
+                        $(this).find("span").addClass(' bronzemedal').delay((speedAnimation/medal)*1000).queue(function(next){
+                            $(this).css({
+                                'display': 'inline-block'
+                            });
+                            next();
+                        });
+                    }
+                });
+            } else {
+               alert('Select cars for race');
+                return false;
+            }
+        });  
     });
     
     //filter cars

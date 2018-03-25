@@ -147,6 +147,8 @@ body {
         border-radius: 10px; }
         .container .cars .panel.disable img {
           filter: brightness(70%); }
+  .container .buttons-holder {
+    text-align: right; }
 
 .scale-holder {
   position: relative;

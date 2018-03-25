@@ -1,12 +1,14 @@
 $( document ).ready(function() {
      
     $.getJSON("data.json", function(data) {
-        
         var data = data;
         var carsInfo = data.cars;
         var carData = '';
         var carsLIst = document.getElementById('cars-list'); 
         var speedSelectedCars = [];
+        var scale = document.getElementById('scale');
+        var scaleWidth = scale.offsetWidth;
+        var scaleBox = scaleWidth/10;
         
 
         //car elements
@@ -29,9 +31,15 @@ $( document ).ready(function() {
             })
         });
 
+        //grid scale
+        for(var s = 1; s < 10; s++) {
+            scale.innerHTML += '<div class="scale-box" style="width:' + scaleBox + 'px">' + s + ' x ' + dataDistance/10 + 'km</div>';
+        }
+        scale.style.paddingLeft = scaleBox + 'px';
 
 
- 
+
+
     });
     
     //filter cars

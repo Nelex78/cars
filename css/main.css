@@ -148,4 +148,57 @@ body {
         .container .cars .panel.disable img {
           filter: brightness(70%); }
 
+.track {
+  text-align: left;
+  border: 1px solid #000;
+  border-radius: 10px;
+  min-height: 210px;
+  margin-bottom: 100px;
+  position: relative;
+  z-index: 100; }
+  .track div.racecar {
+    border-bottom: 1px solid #000;
+    height: 70px;
+    position: relative; }
+    .track div.racecar:last-child {
+      border-bottom: 0 none; }
+    .track div.racecar img {
+      width: 50px;
+      height: auto;
+      margin: 20px 0; }
+    .track div.racecar .medal {
+      position: absolute;
+      top: 5px;
+      right: -40px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: transparent;
+      font-size: 13px;
+      font-weight: bold; }
+      .track div.racecar .medal::after {
+        position: absolute;
+        top: 7px;
+        color: #000; }
+      .track div.racecar .medal.goldmedal {
+        background-color: #CFB53B;
+        display: none; }
+        .track div.racecar .medal.goldmedal::after {
+          content: '1st';
+          right: 7px; }
+      .track div.racecar .medal.silvermedal {
+        background-color: #C0C0C0;
+        display: none; }
+        .track div.racecar .medal.silvermedal::after {
+          content: '2nd';
+          right: 5px; }
+      .track div.racecar .medal.bronzemedal {
+        background-color: #CD7F32;
+        display: none; }
+        .track div.racecar .medal.bronzemedal::after {
+          content: '3rd';
+          right: 5px; }
+    .track div.racecar p {
+      display: none; }
+
 /*# sourceMappingURL=main.css.map */

@@ -1,10 +1,13 @@
 $( document ).ready(function() {
      
     $.getJSON("data.json", function(data) {
+        
         var data = data;
         var carsInfo = data.cars;
         var carData = '';
         var carsLIst = document.getElementById('cars-list'); 
+        var speedSelectedCars = [];
+        
 
         //car elements
         carsInfo.forEach(function(car, index) {
@@ -13,7 +16,22 @@ $( document ).ready(function() {
         });
         carsLIst.innerHTML = carData;
 
-  
+        //select and add cars to track
+        document.querySelectorAll('.cars').forEach(function(selectCar, indexCar){
+            $(selectCar).on('click', function() {                
+                var trackCarImg = carsInfo[indexCar].image;
+                var trackCarImgAlt = carsInfo[indexCar].name;
+
+                if(speedSelectedCars.length < 3){
+                    speedSelectedCars.push(carsInfo[indexCar]);
+                    track.innerHTML += '<div class="racecar"><img src="' + trackCarImg + '" alt="' + trackCarImgAlt + '" id="rececar"/><span class="medal">' + carsInfo[indexCar].speed + '</span></div>';
+                }
+            })
+        });
+
+
+
+ 
     });
     
     //filter cars

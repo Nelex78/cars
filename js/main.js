@@ -2,6 +2,7 @@ $( document ).ready(function() {
      
     $.getJSON("data.json", function(data) {
         var data = data;
+        var dataDistance = data.distance;
         var carsInfo = data.cars;
         var carData = '';
         var carsLIst = document.getElementById('cars-list'); 

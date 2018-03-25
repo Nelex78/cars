@@ -1,0 +1,56 @@
+{
+  "distance": 50,
+  "cars": [
+    {
+      "image": "https://lb.assets.fiat.com/assets/00/punto-my16/images/thumbnail/equipment/street.png",
+      "speed": 148,
+      "description": "The Fiat Punto is a supermini car produced by the Italian manufacturer Fiat since 1993.",
+      "name": "Fiat Punto",
+      "id": 1
+    },
+    {
+      "image": "https://www.mazdausa.com/siteassets/vehicles/2017/m3s/trims/sport/17-m3s-sp-25d-snowflake-white.png",
+      "speed": 235,
+      "description": "The Fiat Punto is a supermini car produced by the Italian manufacturer Fiat since 1993.",
+      "name": "Mazda 3",
+      "id": 2
+    },
+    {
+      "image": "http://www.nriol.com/images/benz-cla.png",
+      "speed": 280,
+      "description": "The Fiat Punto is a supermini car produced by the Italian manufacturer Fiat since 1993.",
+      "name": "Mercedes Benz CLA",
+      "id": 3
+    },
+    {
+      "image": "https://images.honda.ca/models/H/Models/2017/civic_sedan/ex_t_10417_nh_830mlunar_silver_metallic_front.png?width=1000",
+      "speed": 177,
+      "description": "The Fiat Punto is a supermini car produced by the Italian manufacturer Fiat since 1993.",
+      "name": "Honda Civic",
+      "id": 4
+    },
+    {
+      "image": "http://images.nadaguides.com/Models/320x240/2010-smart-fortwo.png",
+      "speed": 102,
+      "description": "The Fiat Punto is a supermini car produced by the Italian manufacturer Fiat since 1993.",
+      "name": "Smart",
+      "id": 5
+    }
+  ],
+  "speed_limits": [
+    {
+      "position": 22,
+      "speed": 60
+    },
+    {
+      "position": 45,
+      "speed": 80
+    }
+  ],
+  "traffic_lights": [
+    {
+      "position": 28,
+      "duration": 3000
+    }
+  ]
+}

@@ -1,3 +1,268 @@
+.clearfix, .clearfix::after {
+  clear: both;
+  display: block;
+  width: 100%; }
 
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px; }
+
+.container {
+  width: 858px;
+  margin: 50px auto;
+  display: block;
+  text-align: center; }
+  .container .searchCars, .container #speedAnimation, .container #start {
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 3px 10px;
+    margin-bottom: 30px;
+    width: 70%; }
+  .container .buttons-holder label {
+    font-size: 14px; }
+  .container #speedAnimation, .container #start {
+    width: 100px; }
+  .container #start {
+    height: 38px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-left: 10px; }
+  .container .cars-list {
+    overflow: hidden;
+    margin-bottom: 30px; }
+  .container .cars {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 282px;
+    height: 264px; }
+    .container .cars:nth-child(3n+2) {
+      border-top: 1px solid transparent;
+      border-right: 1px solid #000;
+      border-bottom: 1px solid transparent;
+      border-left: 1px solid #000; }
+    .container .cars:nth-child(3n+1) {
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      border-left: 1px solid transparent; }
+    .container .cars:nth-child(3n+0) {
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      border-left: 1px solid transparent; }
+    .container .cars:nth-child(-n+3) {
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid #000; }
+    .container .cars .panel {
+      margin: auto;
+      position: relative;
+      perspective: 800px;
+      display: inline-block;
+      float: left;
+      width: 232px;
+      height: 184px;
+      cursor: pointer;
+      margin: 40px 25px;
+      text-align: center; }
+      .container .cars .panel img {
+        display: block;
+        width: 100%;
+        height: auto; }
+      .container .cars .panel .card {
+        width: 100%;
+        height: 100%;
+        -o-transition: all .5s;
+        -ms-transition: all .5s;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        transition: all .5s;
+        -webkit-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0px;
+        left: 0px; }
+        .container .cars .panel .card.front {
+          z-index: 2; }
+          .container .cars .panel .card.front p {
+            position: absolute;
+            display: block;
+            width: 100%;
+            text-align: center;
+            bottom: 0; }
+        .container .cars .panel .card.back {
+          z-index: 1;
+          -webkit-transform: rotateY(-180deg);
+          -ms-transform: rotateY(-180deg);
+          -moz-transform: rotateY(-180deg);
+          transform: rotateY(-180deg); }
+          .container .cars .panel .card.back img {
+            position: absolute;
+            z-index: 10;
+            filter: brightness(50%); }
+            .container .cars .panel .card.back img::after {
+              content: '';
+              clear: both;
+              display: block; }
+          .container .cars .panel .card.back .desc {
+            display: block;
+            height: 100%;
+            position: relative;
+            z-index: 30;
+            opacity: 0.7;
+            background-color: #000;
+            border-radius: 10px;
+            padding: 10px; }
+            .container .cars .panel .card.back .desc p {
+              line-height: 2;
+              color: #fff; }
+              .container .cars .panel .card.back .desc p span {
+                font-weight: bold;
+                margin-right: 5px; }
+                .container .cars .panel .card.back .desc p span.block {
+                  display: block; }
+      .container .cars .panel:hover .front {
+        z-index: 1;
+        -webkit-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        transform: rotateY(180deg); }
+      .container .cars .panel:hover .back {
+        z-index: 2;
+        -webkit-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        transform: rotateY(0deg); }
+      .container .cars .panel.disable {
+        pointer-events: none;
+        opacity: 0.7;
+        background-color: #000;
+        cursor: default;
+        border-radius: 10px; }
+        .container .cars .panel.disable img {
+          filter: brightness(70%); }
+
+.scale-holder {
+  position: relative;
+  margin-top: 50px;
+  z-index: 0; }
+  .scale-holder .scale {
+    position: absolute;
+    width: 100%;
+    top: -30px; }
+    .scale-holder .scale .scale-box {
+      min-height: 240px;
+      display: inline-block;
+      float: left;
+      position: relative;
+      text-indent: -10%; }
+      .scale-holder .scale .scale-box::before {
+        content: ' ';
+        border-left: 1px solid gray;
+        height: 212px;
+        position: absolute;
+        top: 30px;
+        left: 0; }
+      .scale-holder .scale .scale-box:firstchild::before {
+        border-left: 1px solid transparent; }
+    .scale-holder .scale .speedLimit, .scale-holder .scale .trafficLight {
+      position: absolute;
+      bottom: -70px;
+      width: 50px;
+      height: 50px;
+      font-weight: bold;
+      font-size: 30px;
+      border: 5px solid gray;
+      border-radius: 50%;
+      line-height: 50px;
+      display: inline-block; }
+      .scale-holder .scale .speedLimit::after, .scale-holder .scale .trafficLight::after {
+        content: ' ';
+        border-left: 4px dashed gray;
+        height: 212px;
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        margin-left: -2px; }
+    .scale-holder .scale .trafficLight {
+      bottom: -85px;
+      width: 35px;
+      height: 70px;
+      font-size: 30px;
+      border: 3px solid gray;
+      border-radius: 5px;
+      line-height: 0px; }
+      .scale-holder .scale .trafficLight span {
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin: 10px auto;
+        border-radius: 50%;
+        background-color: gray; }
+        .scale-holder .scale .trafficLight span.redl {
+          background-color: red; }
+        .scale-holder .scale .trafficLight span.greenl {
+          background-color: green; }
+      .scale-holder .scale .trafficLight::after {
+        bottom: 75px; }
+
+.track {
+  text-align: left;
+  border: 1px solid #000;
+  border-radius: 10px;
+  min-height: 210px;
+  margin-bottom: 100px;
+  position: relative;
+  z-index: 100; }
+  .track div.racecar {
+    border-bottom: 1px solid #000;
+    height: 70px;
+    position: relative; }
+    .track div.racecar:last-child {
+      border-bottom: 0 none; }
+    .track div.racecar img {
+      width: 50px;
+      height: auto;
+      margin: 20px 0; }
+    .track div.racecar .medal {
+      position: absolute;
+      top: 5px;
+      right: -40px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: transparent;
+      font-size: 13px;
+      font-weight: bold; }
+      .track div.racecar .medal::after {
+        position: absolute;
+        top: 7px;
+        color: #000; }
+      .track div.racecar .medal.goldmedal {
+        background-color: #CFB53B;
+        display: none; }
+        .track div.racecar .medal.goldmedal::after {
+          content: '1st';
+          right: 7px; }
+      .track div.racecar .medal.silvermedal {
+        background-color: #C0C0C0;
+        display: none; }
+        .track div.racecar .medal.silvermedal::after {
+          content: '2nd';
+          right: 5px; }
+      .track div.racecar .medal.bronzemedal {
+        background-color: #CD7F32;
+        display: none; }
+        .track div.racecar .medal.bronzemedal::after {
+          content: '3rd';
+          right: 5px; }
+    .track div.racecar p {
+      display: none; }
 
 /*# sourceMappingURL=main.css.map */

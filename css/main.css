@@ -1,3 +1,132 @@
+.clearfix, .clearfix::after {
+  clear: both;
+  display: block;
+  width: 100%; }
 
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px; }
+
+.container {
+  width: 858px;
+  margin: 50px auto;
+  display: block;
+  text-align: center; }
+  .container .cars-list {
+    overflow: hidden;
+    margin-bottom: 30px; }
+  .container .cars {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 282px;
+    height: 264px; }
+    .container .cars:nth-child(3n+2) {
+      border-top: 1px solid transparent;
+      border-right: 1px solid #000;
+      border-bottom: 1px solid transparent;
+      border-left: 1px solid #000; }
+    .container .cars:nth-child(3n+1) {
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      border-left: 1px solid transparent; }
+    .container .cars:nth-child(3n+0) {
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      border-left: 1px solid transparent; }
+    .container .cars:nth-child(-n+3) {
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid #000; }
+    .container .cars .panel {
+      margin: auto;
+      position: relative;
+      perspective: 800px;
+      display: inline-block;
+      float: left;
+      width: 232px;
+      height: 184px;
+      cursor: pointer;
+      margin: 40px 25px;
+      text-align: center; }
+      .container .cars .panel img {
+        display: block;
+        width: 100%;
+        height: auto; }
+      .container .cars .panel .card {
+        width: 100%;
+        height: 100%;
+        -o-transition: all .5s;
+        -ms-transition: all .5s;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        transition: all .5s;
+        -webkit-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0px;
+        left: 0px; }
+        .container .cars .panel .card.front {
+          z-index: 2; }
+          .container .cars .panel .card.front p {
+            position: absolute;
+            display: block;
+            width: 100%;
+            text-align: center;
+            bottom: 0; }
+        .container .cars .panel .card.back {
+          z-index: 1;
+          -webkit-transform: rotateY(-180deg);
+          -ms-transform: rotateY(-180deg);
+          -moz-transform: rotateY(-180deg);
+          transform: rotateY(-180deg); }
+          .container .cars .panel .card.back img {
+            position: absolute;
+            z-index: 10;
+            filter: brightness(50%); }
+            .container .cars .panel .card.back img::after {
+              content: '';
+              clear: both;
+              display: block; }
+          .container .cars .panel .card.back .desc {
+            display: block;
+            height: 100%;
+            position: relative;
+            z-index: 30;
+            opacity: 0.7;
+            background-color: #000;
+            border-radius: 10px;
+            padding: 10px; }
+            .container .cars .panel .card.back .desc p {
+              line-height: 2;
+              color: #fff; }
+              .container .cars .panel .card.back .desc p span {
+                font-weight: bold;
+                margin-right: 5px; }
+                .container .cars .panel .card.back .desc p span.block {
+                  display: block; }
+      .container .cars .panel:hover .front {
+        z-index: 1;
+        -webkit-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        transform: rotateY(180deg); }
+      .container .cars .panel:hover .back {
+        z-index: 2;
+        -webkit-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        transform: rotateY(0deg); }
+      .container .cars .panel.disable {
+        pointer-events: none;
+        opacity: 0.7;
+        background-color: #000;
+        cursor: default;
+        border-radius: 10px; }
+        .container .cars .panel.disable img {
+          filter: brightness(70%); }
 
 /*# sourceMappingURL=main.css.map */

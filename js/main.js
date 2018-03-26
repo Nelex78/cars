@@ -16,6 +16,8 @@ $( document ).ready(function() {
         var scale = document.getElementById('scale');
         var scaleWidth = scale.offsetWidth;
         var scaleBox = scaleWidth/10;
+        var carid = [];
+        var carSpeed = [];
 
         //car elements
         carsInfo.forEach(function(car, index) {
@@ -86,7 +88,7 @@ $( document ).ready(function() {
                 startTrafficLight();
 
                 speedSelectedCars.forEach(function(c, idx){
-                      winnerSpeed.push(c.speed);
+                      winnerSpeed.push(c.id);
 
                       $('.track div:eq(' + idx + ') img').css({
                           'transition': 'margin-left ' + (speedAnimation/c.speed) + 's'
@@ -95,12 +97,26 @@ $( document ).ready(function() {
                           'margin-left': 'calc(100% - 50px)'
                       });
                 }); 
+                
+                carsInfo.forEach(function(car) {
+                     carid.push(car.id);
+                }); 
 
 
-                winnerSpeed = winnerSpeed.sort().slice().reverse();
-                var gold = winnerSpeed[0];
-                var silver = winnerSpeed[1];
-                var bronze = winnerSpeed[2];
+                for(var i = 0; i < carid.length; i++){
+                  for(var j = 0; j < winnerSpeed.length; j++){
+                    if(winnerSpeed[j] == carid[i]){
+                        carSpeed.push(carsInfo[i].speed);
+                    }
+                  }
+                }
+                
+                
+                carSpeed = carSpeed.sort();
+                var gold = carSpeed[2];
+                var silver = carSpeed[1];
+                var bronze = carSpeed[0];
+                
                 $(".racecar").each(function(c, i) {
                     var medal = $(this).find("span").text();
                     if(medal == gold){
